@@ -22,4 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/pustakawan', [PustakawanController::class, 'index']);
 
 // Get all
-Route::get('/books', [BookController::class 'index']);
+Route::get('/books', [BookController::class, 'index']);
+
+// Add resouce
+Route::post('/books', [BookController::class, 'store']);
+
+// Get detail resource
+Route::get('/books/{id}', [BookController::class, 'show']);
