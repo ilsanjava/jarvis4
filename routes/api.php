@@ -29,3 +29,13 @@ Route::post('/books', [BookController::class, 'store']);
 
 // Get detail resource
 Route::get('/books/{id}', [BookController::class, 'show']);
+
+// Edit resource
+Route::put('/books/{id}', [BookController::class, 'update']); 
+
+// Delete Resource
+Route::delete('/book/{id}', [BookController::class, 'destroy']);
+
+// Search resource by title
+
+Route::get('/books/serch/{title}', [BookController::class, 'search']);
