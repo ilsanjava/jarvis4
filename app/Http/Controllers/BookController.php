@@ -79,16 +79,22 @@ function destroy($id){
 
         ], 200);
     }
-    function serch{$title}{
-     $books =  Book::where{'title', 'you do you'}->get();
+    function serc($title)
+    {
+     $books =  Book::where('title', 'like', '%')->get();
 
-     if (count{{books}})
+     if (count ($books) == 0) {
+        return response() ->json([
+            'message' => 'resource is empity',
+            'status' => 204,
+        ], 204);
+     }
 
 
      return response()->json([
         'message' => 'Resource searched successfully',
         'data' => $books
+        'status' => 200,
      ],200);
     }
-}
 }
