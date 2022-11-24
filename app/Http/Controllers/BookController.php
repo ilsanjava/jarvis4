@@ -28,6 +28,14 @@ class BookController extends Controller
 
     function store(Reqquest $request)
     {
+
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'publisher' => 'required',
+            'rating' => 'required | numeric',
+            'publish_date' => 'required \ date',
+        ]);
         $created = Book::create([
             'title' => $request->title,
             'author' => $request->author,
@@ -53,6 +61,10 @@ class BookController extends Controller
             'date' => $book
         ], 404); 
        }
+       $request->validate([
+        'rating' => 'numeric',
+        'publish_date' => 'required \ date',
+    ]);
 
        //return book resoruce
        return response()->json([
